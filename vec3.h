@@ -36,6 +36,7 @@ class vec3 {
 			e[0] *= t;
 			e[1] *= t;
 			e[2] *= t;
+			return *this;
 		}
 		
 		vec3& operator/=(double t) {
@@ -52,7 +53,7 @@ class vec3 {
 };
 
 // point3 just an alias for vec3, for geometric clarity
-using point3 = vec3 
+using point3 = vec3; 
 
 // Vector utiliy functions
 
