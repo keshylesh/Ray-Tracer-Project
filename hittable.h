@@ -1,8 +1,6 @@
 #ifndef HITTABLE_H
 #define HITTABLE_H
 
-#include "ray.h"
-
 /*
  * Generic hittable class definitions, describes a 'hittable' thing
  */
@@ -28,10 +26,10 @@ class hittable {
 		virtual ~hittable() = default;
 
 		/*
-		 * Takes in a ray reference, and an upper and lower bound to detect a hit and 
+		 * Takes in a ray reference, and an interval to detect a hit and 
 		 * only register it if between the two bounds
 		 */
-		virtual bool hit(const ray& r, double ray_tmin, double ray_tmax, hit_record& rec) const = 0;
+		virtual bool hit(const ray& r, interval ray_t, hit_record& rec) const = 0;
 };
 
 #endif
