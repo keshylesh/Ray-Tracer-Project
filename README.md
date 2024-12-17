@@ -1,6 +1,6 @@
 # Simple Ray Tracer
 
-This ray tracer is based on Peter Shirley's [Ray Tracing in One Weekend Series][https://raytracing.github.io/]
+This ray tracer is based on Peter Shirley's [Ray Tracing in One Weekend Series](https://raytracing.github.io/)
 
 ## Structure
 * **/build/**: All the compiled versions of the executables so far
