@@ -2,6 +2,7 @@
 #define CAMERA_H
 
 #include "hittable.h"
+#include "material.h"
 
 class camera {
     public:
@@ -99,8 +100,12 @@ class camera {
              * extra collisions (shadow acne). By using 0.001 we ignore these rays
              */
 	        if (world.hit(r, interval(0.001, infinity), rec)) {
-	            vec3 direction = rec.normal + random_unit_vector(); // Lambertion distribution
-		        return 0.5 * ray_color(ray(rec.p, direction), depth - 1, world);
+	            ray scattered;
+	            color attenuation;
+	            if (rec.mat->scatter(r, rec, attenuation, scattered)) {
+	                return attenuation * ray_color(scattered, depth - 1, world);
+	            }
+	            return color(0, 0, 0);
 	        }
 
     	    vec3 unit_direction = unit_vector(r.direction());
