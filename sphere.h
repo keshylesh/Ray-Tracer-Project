@@ -2,12 +2,12 @@
 #define SPHERE_H
 
 #include "hittable.h"
+#include "material.h"
 
 class sphere : public hittable {
     public:
-        sphere(const point3& center, double radius) : center(center), radius(std::fmax(0, radius)) {
-            //TODO: Initialise material pointer 'mat'
-        }
+        sphere(const point3 &center, double radius, shared_ptr<material> mat) 
+            : center(center), radius(std::fmax(0, radius)), mat(mat) {}
 
         bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
             vec3 oc = center - r.origin();
